@@ -1,15 +1,3 @@
-trigger AccountTrigger on Account (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
-	if(Trigger.isAfter) {
-        	if(Trigger.isUpdate) {
-	            AccountTriggerHelper.apexTrigger3(Trigger.new, Trigger.oldMap);
-		}
-	}
-}
-
-
-
-
-
 public class AccountTriggerHelper {
     public static void apexTrigger3(List<Account> newList, Map<Id, Account> oldMap) {
         Map<Id, Account> accIdToAccMap = new Map<Id, Account>();
