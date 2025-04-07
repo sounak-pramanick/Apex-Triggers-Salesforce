@@ -1,7 +1,20 @@
 trigger ContactTrigger on Contact (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 	if(Trigger.isAfter) {
+		if(Trigger.isInsert) {
+	            ContactTriggerHelper.apexTrigger5(Trigger.new, null);
+	        }
+
         	if(Trigger.isUpdate) {
 	            ContactTriggerHelper.apexTrigger4(Trigger.new, Trigger.oldMap);
+		    ContactTriggerHelper.apexTrigger5(Trigger.new, Trigger.oldMap);
 		}
+
+		if(Trigger.isDelete) {
+	            ContactTriggerHelper.apexTrigger5(Trigger.old, null);
+        	}
+        
+        	if(Trigger.isUndelete) {
+	            ContactTriggerHelper.apexTrigger5(Trigger.new, null);
+	        }
 	}
 }
