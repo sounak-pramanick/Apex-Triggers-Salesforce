@@ -1,7 +1,12 @@
 trigger AccountTrigger on Account (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 	if(Trigger.isAfter) {
+		if(Trigger.isInsert) {
+	            AccountTriggerHelper.apexTrigger7(Trigger.new, null);
+		}
+
         	if(Trigger.isUpdate) {
 	            AccountTriggerHelper.apexTrigger3(Trigger.new, Trigger.oldMap);
+		    AccountTriggerHelper.apexTrigger7(Trigger.new, Trigger.oldMap);
 		}
 	}
 
