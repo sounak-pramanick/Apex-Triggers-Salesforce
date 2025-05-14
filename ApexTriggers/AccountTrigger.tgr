@@ -19,5 +19,9 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
         	if(Trigger.isUpdate) {
             	    AccountTriggerHelper.apexTrigger6(Trigger.new, Trigger.oldMap);
 		}
+
+		if(Trigger.isDelete) {
+         	    AccountTriggerHelper.apexTrigger10(Trigger.old);
+	        }
     	}
 }
