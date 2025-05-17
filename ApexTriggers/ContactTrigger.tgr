@@ -17,4 +17,10 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
 	            ContactTriggerHelper.apexTrigger5(Trigger.new, null);
 	        }
 	}
-}
+
+	if(Trigger.isBefore) {
+        	if(Trigger.isInsert) {
+	            ContactTriggerHelper.apexTrigger11(Trigger.new);
+		}
+	}
+}	
