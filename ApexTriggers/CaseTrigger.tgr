@@ -1,0 +1,7 @@
+trigger CaseTrigger on Case (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
+	if(Trigger.isAfter) {
+        	if(Trigger.isInsert) {
+	            CaseTriggerHelper.apexTrigger12(Trigger.new);
+		}
+	}
+}
