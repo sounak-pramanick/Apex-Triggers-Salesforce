@@ -8,6 +8,7 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
 	            AccountTriggerHelper.apexTrigger3(Trigger.new, Trigger.oldMap);
 		    AccountTriggerHelper.apexTrigger7(Trigger.new, Trigger.oldMap);
 		    AccountTriggerHelper.apexTrigger9(Trigger.new, Trigger.oldMap);
+		    AccountTriggerHelper.apexTrigger14(Trigger.new, Trigger.oldMap);
 		}
 	}
 
