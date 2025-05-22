@@ -22,10 +22,12 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
         	if(Trigger.isInsert) {
 	            ContactTriggerHelper.apexTrigger11(Trigger.new);
 		    ContactTriggerHelper.apexTrigger13(Trigger.new, null);
+		    ContactTriggerHelper.apexTrigger17(Trigger.new, null);
 		}
 
 		if(Trigger.isUpdate) {
 	            ContactTriggerHelper.apexTrigger13(Trigger.new, Trigger.oldMap);
+		    ContactTriggerHelper.apexTrigger17(Trigger.new, Trigger.oldMap);
 		}
 	}
 }	
