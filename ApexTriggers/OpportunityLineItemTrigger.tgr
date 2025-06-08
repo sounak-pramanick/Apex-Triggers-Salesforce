@@ -6,4 +6,10 @@ trigger OpportunityLineItemTrigger on OpportunityLineItem (before insert, after 
 	    OpportunityLineItemHelper.apexTrigger21(Trigger.new);
         }
     }
+
+    if(Trigger.isBefore) {
+        if(Trigger.isInsert) {
+            OpportunityLineItemHelper.apexTrigger22(Trigger.new);
+        }
+    }
 }
