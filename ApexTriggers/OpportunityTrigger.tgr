@@ -7,6 +7,7 @@ trigger OpportunityTrigger on Opportunity (before insert, after insert, before u
     	if(Trigger.isUpdate) {
             OpportunityTriggerHelper.apexTrigger8(Trigger.new, Trigger.oldMap);
 	    OpportunityTriggerHelper.apexTrigger16(Trigger.new, Trigger.oldMap);
+	    OpportunityTriggerHelper.apexTrigger23(Trigger.new, Trigger.oldMap);
         }
         if(Trigger.isDelete) {
             OpportunityTriggerHelper.apexTrigger8(Trigger.old, null);
