@@ -4,6 +4,7 @@ trigger OpportunityLineItemTrigger on OpportunityLineItem (before insert, after 
         if(Trigger.isInsert) {
             OpportunityLineItemHelper.apexTrigger20(Trigger.new);
 	    OpportunityLineItemHelper.apexTrigger21(Trigger.new);
+	    OpportunityLineItemHelper.apexTrigger24(Trigger.new, null);
         }
     }
 
