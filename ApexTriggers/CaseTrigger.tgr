@@ -2,6 +2,19 @@ trigger CaseTrigger on Case (before insert, after insert, before update, after u
 	if(Trigger.isAfter) {
         	if(Trigger.isInsert) {
 	            CaseTriggerHelper.apexTrigger12(Trigger.new);
+		    CaseTriggerHelper.apexTrigger28(Trigger.new, null);
+		}
+
+		if(Trigger.isUpdate) {
+	            CaseTriggerHelper.apexTrigger28(Trigger.new, Trigger.oldMap);
+		}
+
+		if(Trigger.isDelete) {
+	            CaseTriggerHelper.apexTrigger28(Trigger.old, null);
+		}
+
+		if(Trigger.isUndelete) {
+	            CaseTriggerHelper.apexTrigger28(Trigger.new, null);
 		}
 	}
 }
