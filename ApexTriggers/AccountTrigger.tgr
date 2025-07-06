@@ -3,6 +3,7 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
 		if(Trigger.isInsert) {
 	            AccountTriggerHelper.apexTrigger7(Trigger.new, null);
 		    AccountTriggerHelper.apexTrigger19(Trigger.new);
+		    AccountTriggerHelper.apexTrigger50(Trigger.new);
 		}
 
         	if(Trigger.isUpdate) {
