@@ -10,6 +10,7 @@ trigger CaseTrigger on Case (before insert, after insert, before update, after u
 		if(Trigger.isUpdate) {
 	            CaseTriggerHelper.apexTrigger28(Trigger.new, Trigger.oldMap);
 		    CaseTriggerHelper.apexTrigger31(Trigger.new, Trigger.oldMap);
+		    CaseTriggerHelper.apexTrigger39(Trigger.new, Trigger.oldMap);
 		}
 
 		if(Trigger.isDelete) {
