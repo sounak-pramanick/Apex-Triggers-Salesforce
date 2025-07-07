@@ -1,0 +1,7 @@
+trigger CandidateTrigger on Candidate__c (after insert) {
+    if(Trigger.isAfter) {
+        if(Trigger.isInsert) {
+            CandidateTriggerHelper.apexTrigger49(Trigger.new);
+        }
+    }
+}
