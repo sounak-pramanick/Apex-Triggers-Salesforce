@@ -4,4 +4,10 @@ trigger UserTrigger on User (before insert, after insert, before update, after u
             UserTriggerHelper.apexTrigger36(Trigger.new);
         }
     }
+
+    if(Trigger.isAfter) {
+        if(Trigger.isUpdate) {
+            UserTriggerHelper.apexTrigger40(Trigger.new, Trigger.oldMap);
+        }
+    }
 }
