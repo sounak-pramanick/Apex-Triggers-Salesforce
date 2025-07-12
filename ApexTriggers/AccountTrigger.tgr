@@ -3,6 +3,7 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
 		if(Trigger.isInsert) {
 	            AccountTriggerHelper.apexTrigger7(Trigger.new, null);
 		    AccountTriggerHelper.apexTrigger19(Trigger.new);
+		    AccountTriggerHelper.apexTrigger43(Trigger.new, null);
 		    AccountTriggerHelper.apexTrigger50(Trigger.new);
 		}
 
@@ -13,6 +14,7 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
 		    AccountTriggerHelper.apexTrigger14(Trigger.new, Trigger.oldMap);
 		    AccountTriggerHelper.apexTrigger18(Trigger.new, Trigger.oldMap);
 		    AccountTriggerHelper.apexTrigger30(Trigger.new, Trigger.oldMap);
+		    AccountTriggerHelper.apexTrigger43(Trigger.new, Trigger.oldMap);
 		}
 	}
 
