@@ -1,0 +1,7 @@
+trigger OrderTrigger on Order__c (before update) {
+    if(Trigger.isBefore) {
+        if(Trigger.isUpdate) {
+            OrderTriggerHelper.apexTrigger60(Trigger.new, Trigger.oldMap);
+        }
+    }
+}
