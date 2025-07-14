@@ -25,4 +25,10 @@ trigger CaseTrigger on Case (before insert, after insert, before update, after u
 		    CaseTriggerHelper.apexTrigger31(Trigger.new, null);
 		}
 	}
+
+	if(Trigger.isBefore) {
+        	if(Trigger.isInsert) {
+	            CaseTriggerHelper.apexTrigger45(Trigger.new);
+	        }
+	}
 }
