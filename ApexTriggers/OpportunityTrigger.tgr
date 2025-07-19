@@ -6,7 +6,8 @@ trigger OpportunityTrigger on Opportunity (before insert, after insert, before u
 	    OpportunityTriggerHelper.apexTrigger26(Trigger.new, null);
 	    OpportunityTriggerHelper.apexTrigger27(Trigger.new, null);
 	    OpportunityTriggerHelper.apexTrigger41(Trigger.new, null);
-        }
+	    OpportunityTriggerHelper.apexTrigger47(Trigger.new, null);
+	}
     	if(Trigger.isUpdate) {
             OpportunityTriggerHelper.apexTrigger8(Trigger.new, Trigger.oldMap);
 	    OpportunityTriggerHelper.apexTrigger16(Trigger.new, Trigger.oldMap);
@@ -14,20 +15,23 @@ trigger OpportunityTrigger on Opportunity (before insert, after insert, before u
 	    OpportunityTriggerHelper.apexTrigger26(Trigger.new, Trigger.oldMap);
 	    OpportunityTriggerHelper.apexTrigger27(Trigger.new, Trigger.oldMap);
 	    OpportunityTriggerHelper.apexTrigger41(Trigger.new, Trigger.oldMap);
-        }
+            OpportunityTriggerHelper.apexTrigger47(Trigger.new, Trigger.oldMap);
+	}
         if(Trigger.isDelete) {
             OpportunityTriggerHelper.apexTrigger8(Trigger.old, null);
 	    OpportunityTriggerHelper.apexTrigger16(Trigger.old, null);
 	    OpportunityTriggerHelper.apexTrigger26(Trigger.old, null);
 	    OpportunityTriggerHelper.apexTrigger27(Trigger.old, null);
 	    OpportunityTriggerHelper.apexTrigger41(Trigger.old, null);
-        }
+            OpportunityTriggerHelper.apexTrigger47(Trigger.old, null);
+	}
         if(Trigger.isUndelete) {
             OpportunityTriggerHelper.apexTrigger8(Trigger.new, null);
 	    OpportunityTriggerHelper.apexTrigger16(Trigger.new, null);
 	    OpportunityTriggerHelper.apexTrigger26(Trigger.new, null);
 	    OpportunityTriggerHelper.apexTrigger27(Trigger.new, null);
 	    OpportunityTriggerHelper.apexTrigger41(Trigger.new, null);
+	    OpportunityTriggerHelper.apexTrigger47(Trigger.new, null);
 	}
     }
 }
