@@ -2,6 +2,7 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
 	if(Trigger.isAfter) {
 		if(Trigger.isInsert) {
 	            ContactTriggerHelper.apexTrigger5(Trigger.new, null);
+		    ContactTriggerHelper.apexTrigger48(Trigger.new);
 	        }
 
         	if(Trigger.isUpdate) {
