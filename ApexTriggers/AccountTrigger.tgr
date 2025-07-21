@@ -27,6 +27,7 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
         	if(Trigger.isUpdate) {
             	    AccountTriggerHelper.apexTrigger6(Trigger.new, Trigger.oldMap);
 		    AccountTriggerHelper.apexTrigger42(Trigger.new, Trigger.oldMap);
+		    AccountTriggerHelper.apexTrigger51(Trigger.new, Trigger.oldMap);
 		}
 
 		if(Trigger.isDelete) {
