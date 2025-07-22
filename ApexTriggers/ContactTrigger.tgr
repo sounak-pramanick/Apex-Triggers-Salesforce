@@ -25,6 +25,7 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
 		    ContactTriggerHelper.apexTrigger13(Trigger.new, null);
 		    ContactTriggerHelper.apexTrigger17(Trigger.new, null);
 		    ContactTriggerHelper.apexTrigger33(Trigger.new, null);
+		    ContactTriggerHelper.apexTrigger53(Trigger.new);
 		}
 
 		if(Trigger.isUpdate) {
