@@ -1,0 +1,7 @@
+trigger Product_Trigger on Product__c (before insert) {
+    if(Trigger.isBefore) {
+        if(Trigger.isInsert) {
+            Product_TriggerHelper.apexTrigger57(Trigger.new);
+        }
+    }
+}
