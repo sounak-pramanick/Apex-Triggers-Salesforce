@@ -1,0 +1,7 @@
+trigger Patient_Trigger on Patient__c (before insert) {
+    if(Trigger.isBefore) {
+        if(Trigger.isInsert) {
+            Patient_TriggerHelper.apexTrigger66(Trigger.new);
+        }
+    }
+}
