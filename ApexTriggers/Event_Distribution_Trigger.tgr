@@ -1,0 +1,7 @@
+trigger Event_Distribution_Trigger on Event_Distribution__c (before insert) {
+    if(Trigger.isBefore) {
+        if(Trigger.isInsert) {
+            Event_Distribution_TriggerHelper.apexTrigger69(Trigger.new);
+        }
+    }
+}
