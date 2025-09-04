@@ -40,6 +40,10 @@ trigger OpportunityTrigger on Opportunity (before insert, after insert, before u
     }
 
     if(Trigger.isBefore) {
+	if(Trigger.isInsert) {
+            OpportunityTriggerHelper.apexTrigger71(Trigger.new);
+        }
+
         if(Trigger.isDelete) {
             OpportunityTriggerHelper.apexTrigger63(Trigger.old);
         }
