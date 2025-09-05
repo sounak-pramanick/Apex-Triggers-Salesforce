@@ -1,0 +1,12 @@
+trigger DealTrigger on Deal__c (before insert, before update) {
+    if(Trigger.isBefore) {
+        
+        if(Trigger.isInsert) {
+            //DealTriggerHelper.apexTrigger76(Trigger.new, null);
+        }
+        
+        if(Trigger.isUpdate) {
+            //DealTriggerHelper.apexTrigger76(Trigger.new, Trigger.oldMap);
+        }
+    }
+}
