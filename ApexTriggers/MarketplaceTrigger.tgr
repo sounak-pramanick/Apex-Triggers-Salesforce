@@ -1,0 +1,12 @@
+trigger MarketplaceTrigger on Marketplace__c (after insert, after update) {
+    if(Trigger.isAfter) {
+        
+        if(Trigger.isInsert) {
+            //MarketplaceTriggerHelper.apexTrigger77(Trigger.new, null);
+        }
+        
+        if(Trigger.isUpdate) {
+            //MarketplaceTriggerHelper.apexTrigger77(Trigger.new, Trigger.oldMap);
+        }
+    }
+}
