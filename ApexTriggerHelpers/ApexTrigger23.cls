@@ -20,7 +20,6 @@ public class OpportunityTriggerHelper {
                     tsk.WhatId = opp.Id;
                     tsk.Description = opp.StageName;
                     tasksToUpsert.add(tsk);
-                    System.debug('tasksToUpsert= ' + tasksToUpsert);
                 }
             }
         }
