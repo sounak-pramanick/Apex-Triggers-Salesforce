@@ -1,7 +1,7 @@
 trigger AccountTrigger on Account (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 	if(Trigger.isAfter) {
 		if(Trigger.isInsert) {
-	            AccountTriggerHelper.apexTrigger7(Trigger.new, null);
+			AccountTriggerHelper.apexTrigger7(Trigger.new, null);
 		    AccountTriggerHelper.apexTrigger19(Trigger.new);
 		    AccountTriggerHelper.apexTrigger43(Trigger.new, null);
 		    AccountTriggerHelper.apexTrigger50(Trigger.new);
@@ -23,7 +23,8 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
 
 	if(Trigger.isBefore) {
 	        if(Trigger.isInsert) {
-            	    AccountTriggerHelper.apexTrigger6(Trigger.new, null);
+				AccountTriggerHelper.apexTrigger1(Trigger.new, null);
+            	AccountTriggerHelper.apexTrigger6(Trigger.new, null);
 	        }
         
         	if(Trigger.isUpdate) {
