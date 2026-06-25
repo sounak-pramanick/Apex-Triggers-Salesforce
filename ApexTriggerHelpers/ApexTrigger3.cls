@@ -4,18 +4,27 @@ public class AccountTriggerHelper {
         List<Contact> consToUpdate = new List<Contact>();
         
         for(Account acc : newList) {
-            if(acc.Phone != null && acc.Phone != oldMap.get(acc.Id).Phone) {
+            Account oldAcc = (oldMap != null && oldMap.containsKey(acc.Id)) ? oldMap.get(acc.Id) : null;
+
+            if(oldAcc != null && acc.Phone != oldAcc.Phone) {
                 accIdToAccMap.put(acc.Id, acc);
-            }
+			}
         }
         
         for(Contact con : [SELECT Id, AccountId, Phone FROM Contact WHERE AccountId IN :accIdToAccMap.keySet()]) {
-            con.Phone = accIdToAccMap.get(con.AccountId).Phone;
-            consToUpdate.add(con);
+            if(accIdToAccMap.containsKey(con.AccountId)) {
+				con.Phone = accIdToPhoneMap.get(con.AccountId).Phone;
+                consToUpdate.add(con);
+			}
         }
         
         if(!consToUpdate.isEmpty()) {
-            update consToUpdate;
+            try {
+                update consToUpdate;
+			}
+			catch(Exception e) {
+                System.debug(e.getMessage());
+			}
         }
     }
 }
