@@ -6,7 +6,7 @@ public class AccountTriggerHelper {
         for(Account acc : newList) {
             Account oldAcc = (oldMap != null && oldMap.containsKey(acc.Id)) ? oldMap.get(acc.Id) : null;
 
-            if(oldAcc != null && acc.Phone != oldAcc.Phone && acc.Phone != null) {
+            if(oldAcc != null && acc.Phone != oldAcc.Phone && String.isNotBlank(acc.Phone)) {
                 accIdToAccMap.put(acc.Id, acc);
 			}
         }
