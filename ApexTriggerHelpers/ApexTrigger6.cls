@@ -6,7 +6,9 @@ public class AccountTriggerHelper {
         
         for(Account acc : newList) {
             if(oldMap == null) {
-                accNames.add(acc.Name);
+                if(String.isNotBlank(acc.Name)) {
+                    accNames.add(acc.Name);
+                }
             }
             else {
                 if(acc.Name != oldMap.get(acc.Id).Name) {
