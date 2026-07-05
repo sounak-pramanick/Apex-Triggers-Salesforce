@@ -11,7 +11,7 @@ public class AccountTriggerHelper {
                 }
             }
             else {
-                if(acc.Name != oldMap.get(acc.Id).Name) {
+                if(String.isNotBlank(acc.Name) && acc.Name != oldMap.get(acc.Id).Name) {
                     accNames.add(acc.Name);
                 }
             }
