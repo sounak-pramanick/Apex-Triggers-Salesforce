@@ -71,9 +71,12 @@ public class CaseTriggerHelper {
         List<Account> accsToUpdate = new List<Account>();
 
         if(oldMap == null) {
-			if(cs.Status == 'Closed' && cs.AccountId != null) {
-				accIds.add(cs.AccountId);
-			}
+            for(Case cs : newList) {
+                // case created with closed status
+                if(cs.Status == 'Closed' && cs.AccountId != null) {
+				    accIds.add(cs.AccountId);
+			    }
+            }
 		}
 		else {
 			for(Case cs : newList) {
