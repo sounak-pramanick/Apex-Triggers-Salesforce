@@ -91,14 +91,14 @@ public class CaseTriggerHelper {
 				// current case is updated to closed and account id is updated, then also closed case count changes for both new and old accounts
 				else if(cs.Status == 'Closed' && cs.AccountId != null && cs.AccountId != oldMap.get(cs.Id).AccountId) {
 					accIds.add(cs.AccountId);
-					accIds.add(oldMap.get(cs.Id).AccountId);
+					if(oldMap.get(cs.Id).AccountId != null) accIds.add(oldMap.get(cs.Id).AccountId);
 				}
 			}
 		}
 
-		if(accIds.isEmpty) return;
+		if(accIds.isEmpty()) return;
 
-		for(Account acc : [SELECT Id, Rating, (SELECT Id FROM Cases WHERE Status == 'Closed') FROM Account WHERE Id IN :accIds]) {
+		for(Account acc : [SELECT Id, Rating, (SELECT Id FROM Cases WHERE Status = 'Closed') FROM Account WHERE Id IN :accIds]) {
 			List<Case> closedCases = acc.Cases;
 
 			if(closedCases.length > 5) {
