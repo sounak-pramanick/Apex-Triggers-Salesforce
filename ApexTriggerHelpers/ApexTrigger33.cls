@@ -37,7 +37,7 @@ public class ContactTriggerHelper {
             
             for(Contact con : newList) {
                 if(accIdToRecTypeMap.containsKey(con.AccountId) && con.Contact_Type__c != accIdToRecTypeMap.get(con.AccountId)) {
-                    con.addError('Contact type and account record type should be same');
+                    con.addError('Contact type and parent account record type should be same');
                 }
             }
         }
