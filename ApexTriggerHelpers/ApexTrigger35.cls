@@ -6,7 +6,9 @@ public class CaseTriggerHelper {
         List<Case> casesToUpdate = new List<Case>();
         
         for(Case cs : newList) {
-            if(cs.AccountId != null) accIds.add(cs.AccountId);
+            if(cs.AccountId != null) {
+                accIds.add(cs.AccountId);
+            }
         }
         
         for(Contact con : [SELECT Id, AccountId FROM Contact WHERE AccountId IN :accIds AND Primary_Contact__c = true]) {
