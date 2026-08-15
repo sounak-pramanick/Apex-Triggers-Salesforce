@@ -15,10 +15,9 @@ public class OpportunityContactRoleTriggerHelper {
             if(ocr.OpportunityId != null && oppMap.containsKey(ocr.OpportunityId) && oppMap.get(ocr.OpportunityId).IsClosed) {
                 ocr.addError('OpportunityContactRole cannot be inserted on closed Opportunity');
             }
-            else if(ocr.OpportunityId != null && oppMap.containsKey(ocr.OpportunityId)) {
-                if(!oppMap.get(ocr.OpportunityId).OpportunityContactRoles.isEmpty()) {
-                    ocr.addError('Opportunity already contains an OpportunityContactRole');
-                }
+            else if(ocr.OpportunityId != null && oppMap.containsKey(ocr.OpportunityId) && 
+                    !oppMap.get(ocr.OpportunityId).OpportunityContactRoles.isEmpty()) {
+                ocr.addError('Opportunity already contains an OpportunityContactRole');
             }
         }
     }
