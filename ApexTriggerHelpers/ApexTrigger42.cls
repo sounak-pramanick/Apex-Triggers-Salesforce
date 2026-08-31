@@ -37,7 +37,7 @@ public class AccountTriggerHelper {
 		Set<Id> accIdsWithActiveCons = new Set<Id>();
 
 		for(Account acc : newList) {
-			if(acc.Status == 'Inactive' && acc.Status != oldMap.get(acc.Id).Status) {
+			if(oldMap != null && acc.Status == 'Inactive' && acc.Status != oldMap.get(acc.Id).Status) {
 				accIds.add(acc.Id);
 			}
 		}
