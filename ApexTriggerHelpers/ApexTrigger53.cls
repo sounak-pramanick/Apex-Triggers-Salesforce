@@ -10,7 +10,7 @@ public class ContactTriggerHelper {
             }
         }
         
-        for(Contact con : [SELECT Id, AccountId, New_Contact__c FROM Contact WHERE AccountId IN :accIds]) {
+        for(Contact con : [SELECT Id, New_Contact__c FROM Contact WHERE AccountId IN :accIds AND New_Contact__c = true]) {
             con.New_Contact__c = false;
             consToUpdate.add(con);
         }
