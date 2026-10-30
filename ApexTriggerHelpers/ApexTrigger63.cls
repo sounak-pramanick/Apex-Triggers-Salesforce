@@ -1,5 +1,4 @@
 public class OpportunityTriggerHelper {
-	/*
     public static void apexTrigger63(List<Opportunity> oldList) {
         Map<Id, List<Task>> oppIdToTasksMap = new Map<Id, List<Task>>();
 		Map<Id, Id> accIdToOppIdMap = new Map<Id, Id>();
@@ -18,6 +17,7 @@ public class OpportunityTriggerHelper {
 		for(Opportunity opp : [SELECT Id, AccountId FROM Opportunity WHERE AccountId IN :accIdToOppIdMap.keySet()]) {
 			if(accIdToOppIdMap.containsKey(opp.AccountId) && opp.Id != accIdToOppIdMap.get(opp.AccountId)) {
 				Id oppId = accIdToOppIdMap.get(opp.AccountId);
+				
 				for(Task tsk : oppIdToTasksMap.get(oppId)) {
 					tsk.WhatId = opp.Id;
 					tasksToUpdate.add(tsk);
@@ -46,9 +46,9 @@ public class OpportunityTriggerHelper {
 			}
 		}
     }
-	*/
 
 	// another approach
+	/*
 	public static void apexTrigger63(List<Opportunity> oldList) {
         Map<Id, List<Task>> oppIdToTasksMap = new Map<Id, List<Task>>();
 		Map<Id, Id> accIdToOppIdMap = new Map<Id, Id>();
@@ -102,4 +102,5 @@ public class OpportunityTriggerHelper {
 			}
 		}
     }
+	*/
 }
