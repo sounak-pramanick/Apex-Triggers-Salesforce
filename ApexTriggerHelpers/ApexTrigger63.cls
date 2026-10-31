@@ -103,4 +103,66 @@ public class OpportunityTriggerHelper {
 		}
     }
 	*/
+
+	// another approach
+	/*
+	public static void apexTrigger63(List<Opportunity> oldList) {
+        Map<Id, List<Task>> oppIdToTasksMap = new Map<Id, List<Task>>();
+		Map<Id, Id> oppIdToAccIdMap = new Map<Id, Id>();
+		Map<Id, Opportunity> accIdToOppMap = new Map<Id, Opportunity>();
+        List<Task> tasksToUpdate = new List<Task>();
+		List<Task> tasksToDelete = new List<Task>();
+		
+		for(Opportunity opp : oldList) {
+			if(opp.AccountId != null) {
+				oppIdToAccIdMap.put(opp.Id, opp.AccountId);
+			}
+		}
+
+		for(Task tsk : [Select Id, WhatId, AccountId from Task where WhatId IN :oppIdToAccIdMap.keySet()]) {
+			if(!oppIdToTasksMap.containsKey(tsk.WhatId)) {
+				oppIdToTasksMap.put(tsk.WhatId, new List<Task>());
+			}
+			oppIdToTasksMap.get(tsk.WhatId).add(tsk);
+		}
+
+		for(Opportunity opp: [Select Id, AccountId from Opportunity where AccountId IN :oppIdToAccIdMap.values()]) {
+			if(oppIdToAccIdMap.containsKey(opp.Id)) {
+				accIdToOppMap.put(opp.AccountId, opp);
+			}
+		}
+
+		for(Opportunity opp : oldList) {
+			if(opp.AccountId != null && oppIdToTasksMap.containsKey(opp.Id)) {
+				if(accIdToOppMap.containsKey(opp.AccountId)) {
+					for(Task tsk : oppIdToTasksMap.values()) {
+						tsk.WhatId = accIdToOppMap.get(opp.AccountId).Id;
+						tasksToUpdate.add(tsk);
+					}
+				}
+				else {
+					tasksToDelete.addAll(oppIdToTasksMap.values());
+				}
+			}
+		}
+        
+		if(!tasksToUpdate.isEmpty()) {
+			try {
+				update tasksToUpdate;
+			}
+			catch(Exception e) {
+                System.debug(e.getMessage());
+			}
+		}
+
+		if(!tasksToDelete.isEmpty()) {
+			try {
+				delete tasksToDelete;
+			}
+			catch(Exception e) {
+                System.debug(e.getMessage());
+			}
+		}
+    }
+	*/
 }
