@@ -15,11 +15,13 @@ public class ContactTriggerHelper {
         
         for(Contact con : newList) {
             if(con.AccountId != null && prospectAccountsMap.containsKey(con.AccountId)) {
-                Case cs = new Case();
-            	cs.Description = 'A case is created for Contact - ' + con.LastName;
-            	cs.OwnerId = prospectAccountsMap.get(con.AccountId).OwnerId;
-                cs.AccountId = prospectAccountsMap.get(con.AccountId).Id;
-            	casesToInsert.add(cs);
+            	casesToInsert.add(
+                    createCase(
+                        con.LastName, 
+                        prospectAccountsMap.get(con.AccountId).OwnerId, 
+                        prospectAccountsMap.get(con.AccountId).Id
+                    )
+                );
             }
         }
         
@@ -31,5 +33,13 @@ public class ContactTriggerHelper {
                 System.debug(e.getMessage());
             }
         }
+    }
+
+    private static Case createCase(String description, Id ownerId, Id accountId) {
+        Case cs = new Case();
+        cs.Description = 'A case is created for Contact - ' + description;
+        cs.OwnerId = ownerId;
+        cs.AccountId = accountId;
+        return cs;
     }
 }
