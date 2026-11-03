@@ -10,7 +10,7 @@ public class ContactTriggerHelper {
             }
         }
         
-        prospectAccountsMap = new Map<Id, Account>([SELECT Id, Type, OwnerId FROM Account WHERE Id IN :accIdS
+        prospectAccountsMap = new Map<Id, Account>([SELECT Id, Type, OwnerId FROM Account WHERE Id IN :accIds
                                                     AND Type = 'Prospect']); // in question, value is 'Premium'
         
         for(Contact con : newList) {
